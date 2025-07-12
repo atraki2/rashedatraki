@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Telegram Button</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .telegram-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #0088cc, #00bfff);
+      border: none;
+      border-radius: 40px;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 15px rgba(0, 136, 204, 0.4);
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .telegram-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0, 136, 204, 0.6);
+    }
+
+    .telegram-button svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      transition: transform 0.3s ease;
+    }
+
+    .telegram-button:hover svg {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    .telegram-button::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      top: 0;
+      left: -100%;
+      transform: skewX(-30deg);
+      transition: 0.5s;
+    }
+
+    .telegram-button:hover::after {
+      left: 100%;
+    }
+  </style>
+</head>
 <body>
-   <h1>welcome to page!</h1>
-    <a href='https://t.me/rashedatraki'>telegram</a>
+
+  <a href="https://t.me/rashedatraki" class="telegram-button" target="_blank">
+    <svg viewBox="0 0 240 240">
+      <path d="M120,0C53.729,0,0,53.729,0,120c0,66.271,53.729,120,120,120c66.271,0,120-53.729,120-120
+        C240,53.729,186.271,0,120,0z M179.023,82.392l-22.573,106.667c-1.704,7.663-6.162,9.541-12.497,5.937l-34.545-25.479l-16.656,16.082
+        c-1.837,1.837-3.366,3.366-6.894,3.366l2.457-34.794l63.407-57.229c2.757-2.457-0.598-3.827-4.265-1.37l-78.321,49.372
+        l-33.772-10.563c-7.324-2.29-7.429-7.324,1.541-10.844l132.11-50.92C175.081,67.755,181.271,73.457,179.023,82.392z"/>
+    </svg>
+    Join us on Telegram
+  </a>
 
 </body>
 </html>

@@ -2,17 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Telegram Button</title>
+  <title>rashed atraki website</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #111;
+      background: #000;
+      margin: 0;
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
       font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    /* تایپ متن + آیکون و تیک */
+    .typing-container {
+      display: inline-flex;
+      align-items: center;
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .typing-text {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid rgba(255, 255, 255, 0.75);
+      width: 0;
+      animation: typing 2.5s steps(13) forwards, blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      to { width: 13ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .instagram-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      fill: #fff;
+    }
+
+    .verified-badge {
+      width: 22px;
+      height: 22px;
+      margin-left: 8px;
+      fill: #00acee;
+      animation: fadeIn 3s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.6); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* نئون دور دکمه */
+    .neon-border {
+      position: relative;
+      padding: 3px;
+      border-radius: 14px;
+      background: #000;
+    }
+
+    .neon-border::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, magenta, red);
+      background-size: 400%;
+      border-radius: inherit;
+      z-index: -1;
+      animation: borderFlow 4s linear infinite;
+      mask: 
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: destination-out;
+              mask-composite: exclude;
+      padding: 3px;
+    }
+
+    @keyframes borderFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 400% 50%; }
     }
 
     .telegram-button {
@@ -20,23 +100,22 @@
       align-items: center;
       gap: 10px;
       padding: 14px 28px;
-      background: linear-gradient(135deg, #0088cc, #00bfff);
+      background: linear-gradient(45deg, #0088cc, #00bfff);
       border: none;
-      border-radius: 40px;
+      border-radius: 12px;
       color: white;
       font-size: 16px;
       font-weight: 500;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 8px 15px rgba(0, 136, 204, 0.4);
-      transition: all 0.3s ease-in-out;
+      justify-content: center;
       position: relative;
-      overflow: hidden;
+      z-index: 1;
     }
 
     .telegram-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(0, 136, 204, 0.6);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 136, 204, 0.5);
     }
 
     .telegram-button svg {
@@ -50,34 +129,40 @@
       transform: rotate(15deg) scale(1.1);
     }
 
-    .telegram-button::after {
-      content: "";
-      position: absolute;
-      width: 200%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      top: 0;
-      left: -100%;
-      transform: skewX(-30deg);
-      transition: 0.5s;
-    }
-
-    .telegram-button:hover::after {
-      left: 100%;
+    .button-text {
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
-  <a href="https://t.me/rashedatraki" class="telegram-button" target="_blank">
-    <svg viewBox="0 0 240 240">
-      <path d="M120,0C53.729,0,0,53.729,0,120c0,66.271,53.729,120,120,120c66.271,0,120-53.729,120-120
-        C240,53.729,186.271,0,120,0z M179.023,82.392l-22.573,106.667c-1.704,7.663-6.162,9.541-12.497,5.937l-34.545-25.479l-16.656,16.082
-        c-1.837,1.837-3.366,3.366-6.894,3.366l2.457-34.794l63.407-57.229c2.757-2.457-0.598-3.827-4.265-1.37l-78.321,49.372
-        l-33.772-10.563c-7.324-2.29-7.429-7.324,1.541-10.844l132.11-50.92C175.081,67.755,181.271,73.457,179.023,82.392z"/>
+  <!-- ✅ متن با آیکون اینستاگرام و تیک آبی -->
+  <div class="typing-container">
+    <!-- آیکون اینستاگرام -->
+    <svg class="instagram-icon" viewBox="0 0 24 24">
+      <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.4.5.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1-.9 1.5s-.9.8-1.5 1c-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.4-.5a4 4 0 0 1-2.4-2.4c-.2-.5-.4-1.2-.5-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.4a4 4 0 0 1 2.4-2.4c.5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7 .1 5.7.2 4.8.4 4.1.6a6.2 6.2 0 0 0-3.5 3.5C.4 4.8.2 5.7.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.1 1.3.3 2.2.6 2.9a6.2 6.2 0 0 0 3.5 3.5c.7.3 1.6.5 2.9.6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 2.9-.6a6.2 6.2 0 0 0 3.5-3.5c.3-.7.5-1.6.6-2.9.1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-2.9a6.2 6.2 0 0 0-3.5-3.5C19.2.4 18.3.2 17 .1 15.7 0 15.3 0 12 0z"/><path d="M12 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8.1 4 4 0 0 1 0 8.1zM18.4 4.6a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/>
     </svg>
-    Join us on Telegram
-  </a>
+
+    <div class="typing-text">rashed.atraki</div>
+
+    <!-- تیک آبی -->
+    <svg class="verified-badge" viewBox="0 0 24 24">
+      <path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12s4.5 10 10 10 10-4.5 10-10zm-11 5l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L20 8l-9 9z"/>
+    </svg>
+  </div>
+
+  <!-- دکمه -->
+  <div class="neon-border">
+    <a href="https://t.me/rashedatraki" class="telegram-button" target="_blank">
+      <svg viewBox="0 0 240 240">
+        <path d="M120,0C53.729,0,0,53.729,0,120c0,66.271,53.729,120,120,120c66.271,0,120-53.729,120-120
+          C240,53.729,186.271,0,120,0z M179.023,82.392l-22.573,106.667c-1.704,7.663-6.162,9.541-12.497,5.937l-34.545-25.479l-16.656,16.082
+          c-1.837,1.837-3.366,3.366-6.894,3.366l2.457-34.794l63.407-57.229c2.757-2.457-0.598-3.827-4.265-1.37l-78.321,49.372
+          l-33.772-10.563c-7.324-2.29-7.429-7.324,1.541-10.844l132.11-50.92C175.081,67.755,181.271,73.457,179.023,82.392z"/>
+      </svg>
+      <span class="button-text">Join us on Telegram</span>
+    </a>
+  </div>
 
 </body>
 </html>

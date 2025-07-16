@@ -3,21 +3,21 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>وزن ورودی</title>
+  <title>ورود وزن</title>
 </head>
 <body>
   <h2>وزن خود را وارد کنید (kg):</h2>
   <input type="number" id="weightInput" placeholder="مثلاً 70">
-  <button onclick="goToMain()">ادامه</button>
+  <button onclick="saveAndGo()">ادامه</button>
 
   <script>
-    function goToMain() {
+    function saveAndGo() {
       const weight = document.getElementById("weightInput").value;
       if (weight) {
-        // به صفحه main.html می‌رویم و عدد را در URL می‌فرستیم
-        window.location.href = "main.html?kg=" + weight;
+        localStorage.setItem("weight", weight); // ذخیره مقدار
+        window.location.href = "main.html"; // رفتن به صفحه بعدی
       } else {
-        alert("لطفاً عددی وارد کنید.");
+        alert("لطفاً وزنت را وارد کن.");
       }
     }
   </script>

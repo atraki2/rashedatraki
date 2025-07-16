@@ -7,18 +7,25 @@
 </head>
 <body>
   <h2>وزن شما:</h2>
-  <p id="weightDisplay"></p>
+  <p id="weightDisplay">در حال بارگذاری...</p>
 
   <script>
-    // گرفتن پارامتر از URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const weight = urlParams.get('kg');
+    function updateWeight() {
+      const weight = localStorage.getItem("weight");
+      const display = document.getElementById("weightDisplay");
 
-    if (weight) {
-      document.getElementById("weightDisplay").innerText = weight + " kg";
-    } else {
-      document.getElementById("weightDisplay").innerText = "وزنی وارد نشده است.";
+      if (weight) {
+        display.textContent = weight + " kg";
+      } else {
+        display.textContent = "وزنی وارد نشده است.";
+      }
     }
+
+    // اجرای اولیه
+    updateWeight();
+
+    // بروزرسانی خودکار هر ثانیه
+    setInterval(updateWeight, 1000);
   </script>
 </body>
 </html>

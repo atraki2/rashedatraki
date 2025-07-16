@@ -1,0 +1,24 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>نمایش وزن</title>
+</head>
+<body>
+  <h2>وزن شما:</h2>
+  <p id="weightDisplay"></p>
+
+  <script>
+    // گرفتن پارامتر از URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const weight = urlParams.get('kg');
+
+    if (weight) {
+      document.getElementById("weightDisplay").innerText = weight + " kg";
+    } else {
+      document.getElementById("weightDisplay").innerText = "وزنی وارد نشده است.";
+    }
+  </script>
+</body>
+</html>

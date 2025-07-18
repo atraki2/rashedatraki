@@ -1,23 +1,28 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ورود وزن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>وزن خود را وارد کنید (kg):</h2>
-  <input type="number" id="weightInput" placeholder="مثلاً 70">
-  <button onclick="saveAndGo()">ادامه</button>
+  <div class="check">
+     <h1>beylerbeyi lokum</h1>
+  <input type="text" id="username" placeholder="enter username">
+  <button onclick="checkUsername()">login</button>
 
+  <p id="message" style="color: blue;">......</p></div>
   <script>
-    function saveAndGo() {
-      const weight = document.getElementById("weightInput").value;
-      if (weight) {
-        localStorage.setItem("weight", weight); // ذخیره مقدار
-        window.location.href = "main.html"; // رفتن به صفحه بعدی
+  function checkUsername() {
+      const username = document.getElementById('username').value.trim();
+
+      if (username === 'admin') {
+        // انتقال به صفحه main.html
+        window.location.href = 'main.html';
       } else {
-        alert("لطفاً وزنت را وارد کن.");
+        // نمایش پیام خطا
+        document.getElementById('message').innerText = 'Invalid username!';
       }
     }
   </script>

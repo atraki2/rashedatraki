@@ -1,45 +1,48 @@
-import keyboard
+from flask import Flask, request, render_template_string
 
-# خواندن عدد از فایل HTML (اگر وجود دارد)
-def read_number_from_file():
+app = Flask(__name__)
+
+# مسیر فایل دیتای ساده
+DATA_FILE = 'data.txt'
+
+# تابع برای خواندن وزن شکلات از فایل
+def get_chocolate_weight(name):
     try:
-        with open("index.html", "r") as file:
-            for line in file:
-                if "kg =" in line:
-                    return int(line.strip().split("kg =")[1].split("<")[0])
-    except:
-        return 0
+        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                if '=' in line:
+                    chocolate, weight = line.strip().split('=')
+                    if chocolate.strip().lower() == name:
+                        return weight.strip()
+        return 'پیدا نشد.'
+    except FileNotFoundError:
+        return 'فایل داده پیدا نشد.'
 
-# نوشتن عدد جدید داخل HTML
-def write_number_to_html(number):
-    html_content = f"""<!DOCTYPE html>
+html_code = '''
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>kg counter</title>
+  <meta charset="UTF-8">
+  <title>شکلات‌ها</title>
 </head>
 <body>
-    <h1>وزن:</h1>
-    <p>kg = {number}</p>
+  <h2>اسم شکلات را وارد کن:</h2>
+  <form method="POST">
+    <input type="text" name="choco" placeholder="مثلاً kuş">
+    <button type="submit">نمایش وزن</button>
+  </form>
+  <p><strong>وزن:</strong> {{ weight }}</p>
 </body>
 </html>
-"""
-    with open("index.html", "w", encoding="utf-8") as file:
-        file.write(html_content)
+'''
 
-# مقدار اولیه
-number = read_number_from_file()
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    weight = ''
+    if request.method == 'POST':
+        name = request.form['choco'].strip().lower()
+        weight = get_chocolate_weight(name)
+    return render_template_string(html_code, weight=weight)
 
-print("با زدن Space عدد 5 تا زیاد میشه و در index.html ذخیره میشه. برای خروج esc رو بزن.")
-
-while True:
-    if keyboard.is_pressed("space"):
-        number += 5
-        print("عدد فعلی:", number)
-        write_number_to_html(number)
-        while keyboard.is_pressed("space"):
-            pass
-    elif keyboard.is_pressed("esc"):
-        print("خروج از برنامه.")
-        break
-                                               
+if __name__ == '__main__':
+    app.run(debug=True)

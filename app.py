@@ -1,17 +1,21 @@
-from flask import Flask, request, render_template
+import os
+os.system('pip install pytelegrambotapi')
+import telebot
 
-app = Flask(__name__)
+# Replace with your bot token
+TOKEN = '7790340259:AAGfKIrZ8EC0tcW5ZBrtXuC9kY8B3tdm2H0'
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    message = ""
-    if request.method == 'POST':
-        name = request.form.get('username')
-        if name.lower() == 'rashed':
-            message = "خوش آمدی راشد!"
-        else:
-            message = "بای بای!"
-    return render_template('index.html', message=message)
+bot = telebot.TeleBot(TOKEN)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# /start command handler
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.reply_to(message, "سلام! من بات تلگرام شما هستم 🤖")
+
+# Text message handler
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, f"گفتی: {message.text}")
+
+# Start polling (keep the bot running)
+bot.polling()

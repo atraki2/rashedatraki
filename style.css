@@ -1,50 +1,27 @@
-body {
-    background-image: url(drone.jpg);
-    background-size: cover;
+body{
+    background-color: #121212;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    gap: 12px;
-
+    min-height: 20vh;
 }
-a {
-    background: linear-gradient(to right, gray, white, gray);
-    height: px;
-    font-size: 34px;
-    width: 230px;
+a{
+    font-family: cursive;
     text-decoration: none;
-    font-family:fantasy;
-    color: black;
-    box-shadow: 0 0 21px red;
-    border-radius: 12vh;
+    color: aliceblue;
+    box-shadow: 0 0 2px red;
     padding: 12px;
-    text-align: center;
-    transition: all 2s;
+    border-radius: 30px;
+    text-shadow: 0 0 30px blue;
+    transition: all 1s;
 }
-a:hover {
-    color: aliceblue;
-    background: linear-gradient(to right, #121212);
-    text-shadow: 0 0 12px;
-    box-shadow: 0 0 30px blue;
-}
-p {
-    color: aliceblue;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.pra {
+.myd {
     box-shadow: 0 0 3px white;
-    color: aliceblue;
-    translate: 1px -150px;
-    padding: 12px;
-    text-decoration: overline;
-    
-
+    padding: 30px;
+    border-radius: 12px;
+}
+a:hover{
+    background-color: aliceblue;
+    color: #121212;
+    box-shadow: 0 0 2px blue;
 }

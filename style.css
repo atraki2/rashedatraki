@@ -1,27 +1,47 @@
 body{
+    margin: 0;
+    padding: 0;
     background-color: #121212;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    color: white;
+    padding: 14px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 20vh;
-}
-a{
     font-family: cursive;
+    background-color: rgba(74, 74, 110, 0.662);
+}
+#rashed{
+    animation-name: fade;
+    animation-duration: 3s;
+}
+@keyframes fade{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+#instagram{
     text-decoration: none;
-    color: aliceblue;
-    box-shadow: 0 0 2px red;
+    font-family: fantasy;
+    letter-spacing: 1px;
+    background-color: ;
+    border-radius: 20px;
     padding: 12px;
-    border-radius: 30px;
-    text-shadow: 0 0 30px blue;
-    transition: all 1s;
+    box-shadow: 0 0 1123px blue;
+    border: 2px solid red;
+    color: aliceblue;
 }
-.myd {
-    box-shadow: 0 0 3px white;
-    padding: 30px;
-    border-radius: 12px;
-}
-a:hover{
-    background-color: aliceblue;
-    color: #121212;
-    box-shadow: 0 0 2px blue;
+.container{
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+
+
 }

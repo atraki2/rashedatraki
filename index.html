@@ -1,1 +1,288 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>FERIX10S — Gaming</title> <meta name="description" content="FERIX10S gaming page — highlights, clips, schedule. Follow on Instagram @ferix10s" /> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"> <style> :root{ --bg-1:#050515; --bg-2:#0a0a1f; --glass:rgba(255,255,255,.06); --stroke:rgba(255,255,255,.12); --muted:rgba(255,255,255,.75); --brand-a:#a855f7; --brand-b:#22d3ee; --brand-c:#14b8a6; --white:#fff; --radius:22px; --shadow:0 10px 40px -10px rgba(168,85,247,.45); } *{box-sizing:border-box} html,body{height:100%} body{ margin:0; font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif; color:var(--white); background:linear-gradient(180deg,var(--bg-1),var(--bg-2)); overflow-x:hidden; scroll-behavior:smooth; } .wrap{max-width:1180px; margin:0 auto; padding:0 20px} /* -------- BACKGROUND FX (orbs + stars) -------- */ .orbs{position:fixed inset:0; pointer-events:none; z-index:-1} .orb{position:absolute; border-radius:999px; filter:blur(80px); opacity:.35; animation:float 12s ease-in-out infinite} .orb.p1{width:620px; height:620px; background:radial-gradient(closest-side, #7c3aed66, #0000); left:-180px; top:-140px} .orb.p2{width:620px; height:620px; background:radial-gradient(closest-side, #22d3ee66, #0000); right:-160px; bottom:-160px; animation-delay:2.4s} @keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-20px,0)}} /* twinkling star layers (pure CSS) */ .stars, .stars:before, .stars:after{position:fixed; content:""; inset:0; z-index:-2; background-repeat:repeat; background-position:0 0; animation:twinkle 120s linear infinite} .stars{background-image:radial-gradient(2px 2px at 20px 30px,rgba(255,255,255,.7),rgba(255,255,255,0)), radial-gradient(1px 1px at 120px 80px,rgba(255,255,255,.6),rgba(255,255,255,0)), radial-gradient(2px 2px at 200px 250px,rgba(255,255,255,.6),rgba(255,255,255,0)); background-size: 240px 240px, 320px 320px, 360px 360px} .stars:before{background-image:radial-gradient(2px 2px,rgba(255,255,255,.7),rgba(255,255,255,0)); background-size: 180px 180px; opacity:.6; animation-duration:160s} .stars:after{background-image:radial-gradient(1px 1px,rgba(255,255,255,.8),rgba(255,255,255,0)); background-size: 220px 220px; opacity:.45; animation-duration:200s} @keyframes twinkle{from{background-position:0 0}to{background-position:-2000px -2000px}} /* -------- NAV -------- */ .nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(8px); background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.1)); border-bottom:1px solid var(--stroke)} .nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 20px} .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit} .logo{width:38px; height:38px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand-a),var(--brand-b)); box-shadow:var(--shadow)} .logo svg{width:20px; height:20px} .navlinks{display:none; gap:22px} .navlinks a{color:rgba(255,255,255,.8); text-decoration:none; font-weight:600; font-size:14px} .navlinks a:hover{color:#fff} .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:14px; border:1px solid transparent; text-decoration:none; font-weight:700} .btn.follow{background:linear-gradient(90deg,var(--brand-a),var(--brand-b)); color:#fff; box-shadow:0 10px 30px -10px rgba(34,211,238,.5)} .btn.follow:hover{opacity:.92} /* -------- HERO -------- */ .hero{position:relative; padding:64px 0 88px} .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center} h1{font-size:clamp(34px,6vw,62px); line-height:1.03; margin:8px 0 0; font-weight:800} .gradient{background:linear-gradient(90deg,#f5d0fe 0%, #67e8f9 40%, #99f6e4 100%); -webkit-background-clip:text; background-clip:text; color:transparent} .lead{color:var(--muted); max-width:54ch; margin-top:14px} .statgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px} .stat{background:var(--glass); border:1px solid var(--stroke); padding:14px; border-radius:18px; text-align:center} .stat .v{font-size:20px; font-weight:800} .poster{position:relative; height:420px; border-radius:26px; overflow:hidden; background:var(--glass); border:1px solid var(--stroke); box-shadow:0 0 120px -30px rgba(168,85,247,.55)} .poster::before{content:""; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1640&auto=format&fit=crop') center/cover no-repeat} .poster::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.1))} .shine{position:absolute; inset:-2px; border-radius:inherit; background:linear-gradient(90deg,rgba(255,255,255,.0) 0%, rgba(255,255,255,.2) 50%, rgba(255,255,255,0) 100%); transform:translateX(-60%) rotate(8deg); animation:shimmer 5.8s linear infinite} @keyframes shimmer{0%{transform:translateX(-60%) rotate(8deg)}100%{transform:translateX(260%) rotate(8deg)}} .poster .cta{position:absolute; left:50%; bottom:20px; transform:translateX(-50%);} .btn.ghost{background:rgba(255,255,255,.95); color:#000; box-shadow:0 10px 26px -12px rgba(255,255,255,.6)} .btn.ghost:hover{background:#fff} /* -------- SECTIONS -------- */ section{padding:64px 0} .title{font-size:clamp(26px,4.2vw,40px); font-weight:800; margin:0} .muted{color:var(--muted)} .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px} .card{background:var(--glass); border:1px solid var(--stroke); border-radius:var(--radius); padding:18px; transition:transform .25s ease, background .25s ease, box-shadow .25s ease} .card:hover{transform:translateY(-6px); background:rgba(255,255,255,.08); box-shadow:var(--shadow)} .chip{display:inline-grid; place-items:center; width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--brand-a),var(--brand-b))} .clips{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:22px} .clip{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--stroke); background:var(--glass)} .clip iframe{width:100%; aspect-ratio:16/9; border:0; display:block} .schedule{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px} .slot{background:var(--glass); border:1px solid var(--stroke); border-radius:16px; padding:16px} .dot{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--brand-b); margin-right:8px} .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px} /* -------- FOOTER -------- */ footer{border-top:1px solid var(--stroke); background:rgba(0,0,0,.3)} .foot{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; padding:20px} .socials{display:flex; gap:10px} .iconbtn{display:grid; place-items:center; width:40px; height:40px; border-radius:12px; border:1px solid var(--stroke); background:var(--glass); text-decoration:none} .iconbtn:hover{background:rgba(255,255,255,.1)} /* -------- MEDIA -------- */ @media (max-width: 960px){ .navlinks{display:none} .hero-grid{grid-template-columns:1fr; gap:24px} .clips{grid-template-columns:1fr} .cards{grid-template-columns:1fr 1fr} .schedule{grid-template-columns:1fr 1fr} } @media (max-width: 560px){ .cards,.schedule{grid-template-columns:1fr} .statgrid{grid-template-columns:1fr 1fr} } </style> </head> <body> <!-- Background FX --> <div class="orbs"><div class="orb p1"></div><div class="orb p2"></div></div> <div class="stars" aria-hidden="true"></div> <!-- Nav --> <nav class="nav"> <div class="wrap"> <a class="brand" href="#home" aria-label="FERIX10S home"> <span class="logo" aria-hidden="true"> <!-- gamepad icon --> <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4M8 10v4"/><path d="M15 10h.01M19 10h.01"/><path d="M5 7h14a4 4 0 0 1 0 8h-3l-2 2h-4l-2-2H5a4 4 0 0 1 0-8z"/></svg> </span> <strong>FERIX10S</strong> </a> <div class="navlinks" aria-label="Primary"> <a href="#highlights">Highlights</a> <a href="#clips">Clips</a> <a href="#schedule">Schedule</a> <a href="#contact">Contact</a> </div> <a class="btn follow" href="https://instagram.com/ferix10s" target="_blank" rel="noreferrer"> <!-- instagram icon --> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Follow @ferix10s </a> </div> </nav> <!-- Hero --> <header id="home" class="hero"> <div class="wrap hero-grid"> <div> <p class="muted" style="text-transform:uppercase; letter-spacing:.2em; font-weight:700">Live • Competitive • Highlights</p> <h1>Welcome to <span class="gradient">FERIX10S</span> Gaming Realm</h1> <p class="lead">High-AIM gameplay, crisp edits, and daily skill grinds. Dive into cinematic clips, pro strats, and a community that levels up together.</p> <div class="statgrid"> <div class="stat"><div class="muted" style="font-size:12px; text-transform:uppercase">Tournaments</div><div class="v">Top 10</div></div> <div class="stat"><div class="muted" style="font-size:12px; text-transform:uppercase">Daily Grinds</div><div class="v">+3 hrs</div></div> <div class="stat"><div class="muted" style="font-size:12px; text-transform:uppercase">Highlights</div><div class="v">New weekly</div></div> </div> <div class="cta-row"> <a class="btn follow" href="https://instagram.com/ferix10s" target="_blank" rel="noreferrer"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Follow on Instagram </a> <a class="btn" href="#clips" style="background:var(--glass); border:1px solid var(--stroke); color:#fff">▶ Watch Clips</a> </div> </div> <div class="poster"> <span class="shine" aria-hidden="true"></span> <div class="cta"><a class="btn ghost" href="#clips">▶ Play Featured Clip</a></div> </div> </div> </header> <!-- Highlights --> <section id="highlights"> <div class="wrap"> <h2 class="title">Highlights</h2> <p class="muted">Quick peek at what makes this channel pop. Smooth movement, crisp edits, and high-energy clutch plays.</p> <div class="cards"> <article class="card"> <span class="chip" aria-hidden="true"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9l-2 2 2 2"/><path d="M10 9l2 2-2 2"/><path d="M19 5l-7 7-7-7"/></svg> </span> <h3 style="margin:12px 0 6px">Fast Edits</h3> <p class="muted">Frame-perfect edits and snappy retakes for aggressive plays.</p> </article> <article class="card"> <span class="chip" aria-hidden="true"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l8-8 8 8"/><path d="M12 5v14"/></svg> </span> <h3 style="margin:12px 0 6px">Aim Training</h3> <p class="muted">Daily routines to lock in precision and consistency.</p> </article> <article class="card"> <span class="chip" aria-hidden="true"> <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21l4-4 4 4"/><path d="M12 17V3"/></svg> </span> <h3 style="margin:12px 0 6px">Tourney Runs</h3> <p class="muted">Scrims, customs, and clutch moments from competitive queues.</p> </article> </div> </div> </section> <!-- Clips --> <section id="clips"> <div class="wrap"> <h2 class="title">Clips</h2> <p class="muted">Drop in and watch a quick montage or guide. Replace with your real videos.</p> <div class="clips"> <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Montage — Neon Rush" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> <div class="clip"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Aim Lab Routine" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> </div> <div class="cta-row"> <a class="btn follow" href="https://instagram.com/ferix10s" target="_blank" rel="noreferrer">Follow @ferix10s</a> <a class="btn" href="#highlights" style="background:var(--glass); border:1px solid var(--stroke); color:#fff">⬆ Back to Highlights</a> </div> </div> </section> <!-- Schedule --> <section id="schedule"> <div class="wrap"> <h2 class="title">Stream Schedule</h2> <p class="muted">Times are placeholders — set your own hours.</p> <div class="schedule"> <div class="slot"><strong><span class="dot"></span>Mon / Wed / Fri</strong><p class="muted">19:00 – 22:00 (EET)</p></div> <div class="slot"><strong><span class="dot"></span>Weekend</strong><p class="muted">14:00 – 18:00 (EET)</p></div> <div class="slot"><strong><span class="dot"></span>Uploads</strong><p class="muted">New highlights every week</p></div> </div> </div> </section> <!-- Contact --> <section id="contact"> <div class="wrap"> <h2 class="title">Contact</h2> <p class="muted">For collabs, DM on Instagram or drop a message.</p> <div class="cta-row"> <a class="btn follow" href="https://instagram.com/ferix10s" target="_blank" rel="noreferrer">DM @ferix10s</a> <a class="btn" href="#home" style="background:var(--glass); border:1px solid var(--stroke); color:#fff">↑ Back to Top</a> </div> </div> </section> <!-- Footer --> <footer> <div class="wrap foot"> <div>© <span id="y"></span> FERIX10S</div> <div class="socials"> <a class="iconbtn" href="https://instagram.com/ferix10s" target="_blank" aria-label="Instagram"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> </a> <a class="iconbtn" href="#clips" aria-label="YouTube"> <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2 31.2 31.2 0 0 0 0 12a31.2 31.2 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.6 9.4.6 9.4.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 24 12a31.2 31.2 0 0 0-.5-5.8zM9.8 15.6V8.4L15.8 12z"/></svg> </a> <a class="iconbtn" href="#" aria-label="Twitch"> <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M4 3h17v11l-5 5h-4l-3 3H7v-3H4z" opacity=".15"/><path d="M3 2h18v12l-5 5h-4l-3 3H6v-3H3zM8 6v6h2V8h2v4h2V6z" fill="currentColor"/></svg> </a> </div> </div> </footer> <script> // just set year without adding app logic document.getElementById('y').textContent = new Date().getFullYear(); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bal yaz bilişim</title>
+    <link href="templatemo-nexus-style.css" rel="stylesheet">
+<!--
+
+TemplateMo 594 nexus flow
+
+https://templatemo.com/tm-594-nexus-flow
+
+-->
+</head>
+<body id="top">
+    <!-- Enhanced Background Elements -->
+    <div class="cyber-bg">
+        <div class="cyber-gradient"></div>
+        <div class="matrix-rain" id="matrixRain"></div>
+    </div>
+    
+    <div class="particles" id="particlesContainer"></div>
+    
+    <div class="data-streams" id="dataStreams"></div>
+    
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    
+    <div class="grid-overlay">
+        <div class="grid-lines"></div>
+        <div class="grid-glow"></div>
+    </div>
+    
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#top" class="logo">bal yaz bilişim</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-bottom">
+                <a href="#" class="cyber-button">Access Terminal</a>
+            </div>
+            <button class="mobile-menu-button" id="mobileMenuBtn">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#top" class="mobile-menu-logo">NexusFlo</a>
+            <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
+        </div>
+        <div class="mobile-menu-cta">
+            <a href="#" class="cyber-button">Access Terminal</a>
+        </div>
+        <nav class="mobile-menu-nav">
+            <ul>
+                <li><a href="#features">özellik</a></li>
+                <li><a href="#pricing">satış</a></li>
+                <li><a href="#stats">kullanıcılar</a></li>
+                <li><a href="#contact">bize ulaşın</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">
+                <span class="hero-nexus">bal</span><span class="hero-flow">yaz</span>
+            <h1>merheba</h1>
+            <p class="hero-subtitle"> ileri teknolojiye odaklanan yenilikçi bir Ar-Ge merkezidir.
+Amacımız, geleceğin endüstrilerini şekillendirecek çözümler geliştirmektir..</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Initialize System</a>
+                <a href="#" class="btn-secondary">View Documentation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats fade-up" id="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Active Users</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500M+</span>
+                    <span class="stat-label">Tasks Processed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">180+</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features fade-up" id="features">
+        <div class="features-container">
+            <div class="section-header">
+                <h2 class="section-title">özellikler</h2>
+                <p class="section-subtitle">Misyonumuz, teknolojiyle geleceği daha güvenli, akıllı ve verimli hale getirmektir.
+Vizyonumuz ise, global ölçekte teknoloji geliştiren öncü bir merkez olmaktır.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>üretim analiz</h3>
+                    <p>Verimliliği artırmak için akıllı üretim çözümleri.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✈</div>
+                    <h3>drone</h3>
+                    <p>Endüstriyel ve ticari kullanım için yenilikçi drone sistemleri.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>robotik</h3>
+                    <p>Otonom sistemler ve akıllı robot çözümleri.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💠</div>
+                    <h3>yapay zeka</h3>
+                    <p>Veriye dayalı karar destek ve otomasyon sistemler.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>yazılım</h3>
+                    <p>İhtiyaca özel, güvenilir ve ölçeklenebilir yazılımlar.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Görüntü Analizi</h3>
+                    <p>Görsel veriden anlam çıkaran ileri algoritmalar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>siber güvenlik</h3>
+                    <p>Dijital varlıkların korunması için modern çözümler.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕳</div>
+                    <h3>ar-ge</h3>
+                    <p>Yeni fikirlerin hayata geçirilmesi için sürekli inovasyon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing fade-up" id="pricing">
+        <div class="pricing-container">
+            <div class="section-header">
+                <h2 class="section-title">fiyatlarimiz</h2>
+                <p class="section-subtitle">bir proğram seçin</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">üretim analiz</div>
+                    <div class="plan-price">140₺</div>
+                    <div class="plan-period">per neural link</div>
+                    <ul class="plan-features">
+                        <li>Basic quantum processing</li>
+                        <li>5 holographic workspaces</li>
+                        <li>Standard encryption</li>
+                        <li>Community support matrix</li>
+                        <li>Reality sync enabled</li>
+                    </ul>
+                    <a href="#" class="btn-secondary">Enter System</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="plan-name">Nexus</div>
+                    <div class="plan-price">200₺</div>
+                    <div class="plan-period">per neural link</div>
+                    <ul class="plan-features">
+                        <li>Advanced quantum algorithms</li>
+                        <li>Unlimited holo-workspaces</li>
+                        <li>Quantum encryption fortress</li>
+                        <li>Priority neural support</li>
+                        <li>Mind-reading analytics</li>
+                        <li>Hyperdrive sync protocol</li>
+                    </ul>
+                    <a href="#" class="btn-primary">Jack In</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-name">robotik</div>
+                    <div class="plan-price">399₺</div>
+                    <div class="plan-period">per neural link</div>
+                    <ul class="plan-features">
+                        <li>Infinite processing power</li>
+                        <li>Custom reality matrices</li>
+                        <li>Temporal encryption layers</li>
+                        <li>Direct neural interface</li>
+                        <li>Predictive consciousness</li>
+                        <li>Quantum entanglement sync</li>
+                    </ul>
+                    <a href="#" class="btn-secondary">Ascend</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-up" id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2 class="section-title">Initialize Contact</h2>
+                <p class="section-subtitle">Send a transmission through the neural network</p>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Neural ID</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your designation" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Quantum Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.id@nexusflow.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Transmission</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Compose your message to the network..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-submit">Transmit Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="#">Terms of Service</a>
+                <span class="footer-separator">•</span>
+                <a href="#">Documentation</a>
+                <span class="footer-separator">•</span>
+                <a href="#">Contact Support</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NexusFlow Systems. All realities reserved.</p>
+                <p class="footer-credit">Brought to you by <a href="https://templatemo.com" target="_blank" rel="noopener nofollow">TemplateMo</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="templatemo-nexus-scripts.js"></script>
+</body>
+</html>

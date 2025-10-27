@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>کنترل عدد</title>
+</head>
+<body>
+  <h2>عدد را تنظیم کن:</h2>
+  <input type="number" id="numInput" placeholder="عدد جدید">
+  <button onclick="saveNumber()">ذخیره</button>
+  <button onclick="resetNumber()">صفر کن</button>
+
+  <script>
+    function saveNumber() {
+      const val = document.getElementById("numInput").value;
+      localStorage.setItem("number", val);
+      alert("عدد ذخیره شد!");
+    }
+
+    function resetNumber() {
+      localStorage.setItem("number", 0);
+      alert("عدد صفر شد!");
+    }
+  </script>
+</body>
+</html>

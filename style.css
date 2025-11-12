@@ -1,0 +1,73 @@
+body{
+    overflow: hidden;
+    background: url(windows-10-dark-grey-thumb.jpg)no-repeat center center fixed;
+}
+.maintext p{
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+.maintext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+.maintext img{
+    width: 100px;
+    border-radius: 100px;
+    box-shadow: 0 0 30px;
+}
+.chatgpt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px;
+    border-radius: 100px;
+    height: 350px;
+    width: 500px;
+    gap: 10px;
+    flex-direction: column;
+    backdrop-filter: blur(15px);
+}
+.chatgpt img{
+    width: 60px;
+
+}
+.centeri {
+    display: flex;
+    justify-content: center;
+}
+.coding p{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.coding{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+    gap: 12px;
+}
+#tarih{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    translate: 0 64px;
+
+}
+.social img{
+    box-shadow: 0 0 30px white;
+}
+.centeri .chatgpt .social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+

@@ -1,27 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rashed atraki</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رشِد اترکی | Rashed Atraki</title>
+  <style>
+    :root {
+      --bg: #e6f0ff;
+      --shadow-light: #ffffff;
+      --shadow-dark: #b0c8e6;
+      --text: #1e2a3a;
+      --accent: #5b8def;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Vazir', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      width: 90%;
+      max-width: 1000px;
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      border-radius: 20px;
+      background: var(--bg);
+      box-shadow: 8px 8px 16px var(--shadow-dark),
+                  -8px -8px 16px var(--shadow-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .lang-btn {
+      background: var(--bg);
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 4px 4px 8px var(--shadow-dark),
+                  -4px -4px 8px var(--shadow-light);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      box-shadow: inset 4px 4px 8px var(--shadow-dark),
+                  inset -4px -4px 8px var(--shadow-light);
+    }
+
+    main {
+      width: 90%;
+      max-width: 1000px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .profile {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 2rem;
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: 8px 8px 16px var(--shadow-dark),
+                  -8px -8px 16px var(--shadow-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      text-decoration: none;
+      color: var(--accent);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 6px 6px 12px var(--shadow-dark),
+                  -6px -6px 12px var(--shadow-light);
+      transition: all 0.25s ease;
+    }
+
+    .socials a:hover {
+      box-shadow: inset 6px 6px 12px var(--shadow-dark),
+                  inset -6px -6px 12px var(--shadow-light);
+      transform: translateY(-4px);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #6c7a93;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="maintext">
-        <img src="main.jpg" alt="">
-    <p>Rashed atraki</p>
+  <header>
+    <h1 id="title">رشِد اترکی | Rashed Atraki</h1>
+    <button class="lang-btn" id="langToggle">🇮🇷 فارسی</button>
+  </header>
+
+  <main>
+    <div class="profile">🧠</div>
+    <h2 id="headline">سلام، من رشِد اترکی هستم</h2>
+    <p id="bio">
+      توسعه‌دهنده و طراح وب با تمرکز بر رابط‌های کاربری مدرن و انیمیشن‌های نرم.
+      هدف من خلق تجربه‌هایی است که حس طبیعی و زنده‌ای به کاربر می‌دهند.
+    </p>
+
+    <div class="socials">
+      <a href="https://instagram.com/rashed.atraki" target="_blank" title="Instagram">
+        📸
+      </a>
+      <a href="https://t.me/rashedatraki" target="_blank" title="Telegram">
+        💬
+      </a>
+      <a href="https://wa.me/989119581938" target="_blank" title="WhatsApp">
+        📱
+      </a>
     </div>
-    <div class="centeri">
-    <div class="chatgpt">
-        <div class="coding">
-            <p>welcome to my page and thank you!</p>
-        </div>
-        <div social>
-        <a href="https://instagram.com/rashed.atraki"><img src="instagram.png" alt=""></a>
-        <a href="https://t.me/rashedatraki"><img src="telegram.png" alt=""></a>
-        </div>
-    </div>
-    </div>
-    <p id="tarih">2025-2026</p>
+  </main>
+
+  <footer>
+    © ۲۰۲۵ رشِد اترکی — تمام حقوق محفوظ است.
+  </footer>
+
+  <script>
+    const langToggle = document.getElementById("langToggle");
+    const title = document.getElementById("title");
+    const headline = document.getElementById("headline");
+    const bio = document.getElementById("bio");
+    let lang = "fa";
+
+    langToggle.addEventListener("click", () => {
+      if (lang === "fa") {
+        // Switch to Turkish
+        lang = "tr";
+        document.body.dir = "ltr";
+        langToggle.textContent = "🇹🇷 Türkçe";
+        title.textContent = "Rashed Atraki | رشِد اترکی";
+        headline.textContent = "Merhaba, ben Rashed Atraki";
+        bio.textContent =
+          "Modern kullanıcı arayüzleri ve yumuşak animasyonlara odaklanan bir web geliştiricisiyim. Amacım doğal ve akıcı bir kullanıcı deneyimi yaratmaktır.";
+      } else {
+        // Switch to Persian
+        lang = "fa";
+        document.body.dir = "rtl";
+        langToggle.textContent = "🇮🇷 فارسی";
+        title.textContent = "رشِد اترکی | Rashed Atraki";
+        headline.textContent = "سلام، من رشِد اترکی هستم";
+        bio.textContent =
+          "توسعه‌دهنده و طراح وب با تمرکز بر رابط‌های کاربری مدرن و انیمیشن‌های نرم. هدف من خلق تجربه‌هایی است که حس طبیعی و زنده‌ای به کاربر می‌دهند.";
+      }
+    });
+  </script>
 </body>
 </html>

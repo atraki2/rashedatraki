@@ -1,222 +1,211 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rashed Atraki | خوش آمدید</title>
-    <style>
-        /* تنظیمات فونت و پس‌زمینه اصلی */
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rashed</title>
 
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap');
 
-            background: linear-gradient(-45deg, #0b0c10, #1a1a2e, #1f2833, #121212);
-            background-size: 400% 400%;
-            animation: subtleMove 20s ease infinite;
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    :root {
+        --bg-dark: linear-gradient(135deg, #1e1e2f, #2d2d44);
+        --bg-light: linear-gradient(135deg, #e8e8f5, #ffffff);
 
-        /* انیمیشن حرکت آرام پس‌زمینه */
-        @keyframes subtleMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        --text-dark: #ffffff;
+        --text-light: #222;
 
-        /* کانتینر اصلی با افکت RGB */
-        .rgb-card {
-            position: relative;
-            background-color: #1d1d1d;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
-        }
+        --card-dark: rgba(255,255,255,0.06);
+        --card-light: #ffffff;
 
-        /* ایجاد لایه نور RGB در پس‌زمینه کادر */
-        .rgb-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                from 0deg,
-                #ff00ea, #a000ff, #003cff, #00ffc8, 
-                #5bff00, #f0ff00, #ff8c00, #ff0000, #ff00ea
-            );
-            animation: rotateRGB 5s linear infinite;
-            z-index: 1;
-        }
+        --shadow-dark: 0 0 20px rgba(255,255,255,0.2);
+        --shadow-light: 0 0 20px rgba(0,0,0,0.1);
+    }
 
-        /* کانتنت داخلی (باید روی نور قرار بگیرد) */
-        .card-content {
-            position: relative;
-            z-index: 2;
-            background-color: #1d1d1d;
-            padding: 20px;
-            border-radius: 8px;
-            margin: -20px;
-        }
+    body {
+        margin: 0;
+        font-family: "Vazirmatn", sans-serif;
+        background: var(--bg-dark);
+        height: 100vh;
+        transition: 0.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
 
-        /* انیمیشن چرخش RGB */
-        @keyframes rotateRGB {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+    body.light {
+        background: var(--bg-light);
+    }
 
-        /* --- ✨ بخش جدید: استایل تصویر پروفایل --- */
-        .profile-image {
-            width: 150px; /* اندازه تصویر */
-            height: 150px;
-            border-radius: 50%; /* گرد کردن تصویر */
-            object-fit: cover; /* مطمئن می‌شود که تصویر بریده نمی‌شود */
-            margin-bottom: 20px; /* فاصله از عنوان */
-            border: 3px solid transparent; /* حاشیه شفاف اولیه */
-            background-image: linear-gradient(to right, #ff00ea, #00c6ff); /* گرادینت برای حاشیه */
-            background-origin: border-box; /* اعمال گرادینت به حاشیه */
-            background-clip: content-box, border-box; /* محتوا و حاشیه */
-            animation: glowBorder 3s infinite alternate; /* انیمیشن برای حاشیه */
-            box-shadow: 0 0 15px rgba(0, 198, 255, 0.5), 0 0 30px rgba(255, 0, 234, 0.3); /* سایه درخشان */
-        }
+    .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+    }
 
-        @keyframes glowBorder {
-            0% { box-shadow: 0 0 15px rgba(0, 198, 255, 0.5), 0 0 30px rgba(255, 0, 234, 0.3); }
-            50% { box-shadow: 0 0 25px rgba(0, 198, 255, 0.8), 0 0 40px rgba(255, 0, 234, 0.5); }
-            100% { box-shadow: 0 0 15px rgba(0, 198, 255, 0.5), 0 0 30px rgba(255, 0, 234, 0.3); }
-        }
-        /* ------------------------------------------- */
+    .particle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #6a5acd;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: float 6s infinite ease-in-out;
+    }
 
-        /* استایل عنوان و متن */
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    @keyframes float {
+        0% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-40px) scale(1.4); }
+        100% { transform: translateY(0) scale(1); }
+    }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #b0b0b0;
-        }
+    .container {
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        z-index: 2;
+        padding: 25px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        background: var(--card-dark);
+        color: var(--text-dark);
+        box-shadow: var(--shadow-dark);
+        transition: 0.5s;
+        animation: fadeIn 1.5s ease-in-out;
+    }
 
-        /* دکمه‌ها */
-        .cta-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    body.light .container {
+        background: var(--card-light);
+        color: var(--text-light);
+        box-shadow: var(--shadow-light);
+    }
 
-        .btn {
-            text-decoration: none;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            flex-grow: 0;
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-        .btn-primary {
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
-            box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3);
-        }
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 5px;
+        animation: glow 2s infinite alternate;
+    }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 150, 255, 0.5);
-        }
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #6a5acd; }
+        to   { text-shadow: 0 0 25px #8a7aff; }
+    }
 
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid #0072ff;
-        }
+    .name-en {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        margin-bottom: 20px;
+    }
 
-        .btn-secondary:hover {
-            background-color: #0072ff;
-            color: #fff;
-        }
+    .bio {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
 
-        /* --- 📱 طراحی ریسپانسیو برای موبایل --- */
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
+    .btn-box {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
 
-            .rgb-card {
-                padding: 20px;
-            }
+    .btn {
+        padding: 12px 30px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: white;
+        transition: 0.3s;
+    }
 
-            .card-content {
-                margin: 0;
-                padding: 10px;
-            }
+    .btn-instagram {
+        background: linear-gradient(45deg, #fd1d1d, #833ab4, #fcb045);
+    }
 
-            .profile-image {
-                width: 120px; /* اندازه تصویر کوچکتر در موبایل */
-                height: 120px;
-                margin-bottom: 15px;
-            }
+    .btn-whatsapp {
+        background: #25d366;
+    }
 
-            h1 {
-                font-size: 2rem;
-            }
+    .btn:hover {
+        transform: scale(1.07);
+        box-shadow: 0 0 18px rgba(0,0,0,0.3);
+    }
 
-            p {
-                font-size: 1rem;
-            }
+    .toggle {
+        margin-top: 15px;
+        cursor: pointer;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 30px;
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(5px);
+        display: inline-block;
+        transition: 0.3s;
+        color: white;
+    }
 
-            .cta-buttons {
-                flex-direction: column;
-                gap: 12px;
-            }
+    body.light .toggle {
+        background: rgba(0,0,0,0.1);
+        color: #333;
+    }
 
-            .btn {
-                width: 100%;
-                box-sizing: border-box;
-            }
-        }
-        
-    </style>
+    .toggle:hover {
+        transform: scale(1.05);
+    }
+</style>
 </head>
+
 <body>
 
-    <div class="rgb-card">
-        <div class="card-content">
-            <img src="profile-image.jpg" alt="Rashed Atraki Profile" class="profile-image">
-            
-            <h1>Rashed Atraki</h1>
-            <p>
-                به وب‌سایت رسمی من خوش آمدید.
-                در اینجا می‌توانید نمونه‌کارها، پروژه‌ها و اطلاعات تماس من را پیدا کنید.
-            </p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">نمونه کارها</a>
-                <a href="https://instagram.com/rashed.atraki" class="btn btn-secondary">تماس با من</a>
-            </div>
-        </div>
+<div class="particles" id="particles"></div>
+
+<div class="container">
+    <h1>راشد</h1>
+    <div class="name-en">Rashed</div>
+
+    <div class="bio">
+        من راشد هستم؛ علاقمند به تکنولوژی، طراحی وب و ساخت تجربه‌های دیجیتالی جذاب.  
+        همیشه دنبال یادگیری چیزهای جدید و خلق کارهای خاص هستم.
     </div>
+
+    <div class="btn-box">
+        <a href="#" class="btn btn-instagram">Instagram</a>
+        <a href="#" class="btn btn-whatsapp">WhatsApp</a>
+    </div>
+
+    <div class="toggle" onclick="toggleMode()">تغییر حالت روز / شب ☀️🌙</div>
+</div>
+
+<script>
+    // ساخت ذرات
+    const container = document.getElementById("particles");
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement("div");
+        p.classList.add("particle");
+        p.style.left = Math.random() * 100 + "%";
+        p.style.top = Math.random() * 100 + "%";
+        p.style.animationDuration = (4 + Math.random() * 4) + "s";
+        p.style.opacity = 0.3 + Math.random() * 0.7;
+        container.appendChild(p);
+    }
+
+    // حالت روز و شب
+    function toggleMode() {
+        document.body.classList.toggle("light");
+    }
+</script>
 
 </body>
 </html>
-
